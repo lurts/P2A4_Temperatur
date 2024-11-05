@@ -29,9 +29,10 @@ public:
 
     //getter methoden
     double getTemp() const;
-
-    //geforderte methode um temperaturen zu vergleichen
-    static bool istGleich(Celsius x, Celsius y);
+    char getUnit() const;
 };
+
+//geforderte methode um temperaturen zu vergleichen
+bool istGleich(Celsius x, Celsius y);
 
 #endif //P2A4_TEMPERATUR_CELSIUS_H

@@ -22,3 +22,7 @@ void Farenheit::setTemp(const double &newTemp) {
 double Farenheit::getTemp() const {
     return temperature;
 }
+
+char Farenheit::getUnit() const {
+    return 'F';
+}

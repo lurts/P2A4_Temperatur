@@ -29,6 +29,7 @@ public:
 
     //getter methoden
     double getTemp() const;
+    char getUnit() const;
 };
 
 #endif //P2A4_TEMPERATUR_FARENHEIT_H

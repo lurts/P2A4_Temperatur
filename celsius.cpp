@@ -24,7 +24,11 @@ double Celsius::getTemp() const {
     return temperature;
 }
 
-bool Celsius::istGleich(Celsius x, Celsius y) {
+char Celsius::getUnit() const {
+    return 'C';
+}
+
+bool istGleich(Celsius x, Celsius y) {
     double deltaTemp = abs(x.getTemp() - y.getTemp());
 
     return deltaTemp <= 0.01;

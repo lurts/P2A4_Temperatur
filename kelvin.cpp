@@ -22,3 +22,7 @@ void Kelvin::setTemp(const double &newTemp) {
 double Kelvin::getTemp() const {
     return temperature;
 }
+
+char Kelvin::getUnit() const {
+    return 'K';
+}
