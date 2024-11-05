@@ -10,25 +10,34 @@
 
 template <typename T1, typename T2>
 bool eval(T1 a, T2 b, bool expect) {
+    bool passed = (istGleich(a, b) == expect);
     std::cout   << std::boolalpha
-                << "Object A: " << a.getTemp() << " " << a.getUnit() << ", "
+                << "Object A: " << a.getTemp() << " " << a.getUnit() << ",\n"
                 << "Object B: " << b.getTemp() << " " << b.getUnit() << "\n"
-                << "Expected: " << expect << ", got " << istGleich(a, b)
-                << "\n\n";
+                << "Expected: " << expect << ", got: " << istGleich(a, b);
+    if (passed) {
+        std::cout << "\nTest passed!\n\n";
+    } else {
+        std::cout << "\nTest FAILED!\n\n";
+    }
 
-    return (istGleich(a, b) == expect);
+    return passed;
 }
 
 
 
 int main() {
     bool tests[] = {
-            eval(Celsius(100.0), Celsius(105.2), false),
-            eval(Kelvin(273.15), Celsius(0.0), true),
-            eval(Farenheit(451.0), Celsius(232.78), true),
-            eval(Kelvin(1337.0), Farenheit(1946.93), true),
-            eval(Celsius(123.4), Kelvin(45.6), false),
-            eval(Celsius(0.0), Celsius(0.005), true)
+            eval(Celsius(100.0),    Celsius(105.2),     false),
+            eval(Celsius(15000.0),  Celsius(15000.0),   true),
+            eval(Kelvin(273.15),    Celsius(0.0),       true),
+            eval(Kelvin(100.0),     Kelvin(100.0),      true),
+            eval(Kelvin(100.0),     Celsius(-173.15),   true),
+            eval(Farenheit(451.0),  Celsius(232.78),    true),
+            eval(Farenheit(45100),  Kelvin(25310.93),   true),
+            eval(Kelvin(1337.0),    Farenheit(1946.93), true),
+            eval(Celsius(123.4),    Kelvin(45.6),       false),
+            eval(Celsius(0.0),      Celsius(0.005),     true)
     };
 
     int passed = 0;
